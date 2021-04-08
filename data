@@ -1,0 +1,14 @@
+{
+    "name": "Pokhara Package",
+    "price": 5000,
+    "destination": "Pokhara",
+    "agency": "XYZ Travels",
+    "description": "sadasdsadsadas"
+
+}
+
+{
+    "booking": true,
+    "author": "Spiderman"
+}
+
