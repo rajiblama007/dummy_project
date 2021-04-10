@@ -234,7 +234,7 @@ packageRouter.route('/:packageId/bookings/:bookingId')
 
 // PACKAGE COMMENTS CODE
 
-packageRouter.route('/:packageId/:comments')
+packageRouter.route('/:packageId/comments')
     .get((req, res, next) => {
         Packages.findById(req.params.packageId)
             .then((package) => {
@@ -300,7 +300,7 @@ packageRouter.route('/:packageId/:comments')
             .catch((err) => next(err));
     });
 
-packageRouter.route('/:packageId/comments/commentId')
+packageRouter.route('/:packageId/comments/:commentId')
     .get((req, res, next) => {
         Packages.findById(req.params.packageId)
             .then((package) => {
