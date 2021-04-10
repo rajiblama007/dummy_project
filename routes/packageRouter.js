@@ -151,11 +151,11 @@ packageRouter.route('/:packageId/bookings')
             .catch((err) => next(err));
     });
 
-packageRouter.route('/:packageId/bookings/bookingId')
+packageRouter.route('/:packageId/bookings/:bookingId')
     .get((req, res, next) => {
         Packages.findById(req.params.packageId)
             .then((package) => {
-                if(package != null && package.bookings.id(req.params.bookingId) != null){
+                if (package != null && package.bookings.id(req.params.bookingId) != null){
                     res.statusCode = 200;
                     res.setHeader('Content-Type', 'application/json');
                     res.json(package.bookings.id(req.params.bookingId));
@@ -234,7 +234,7 @@ packageRouter.route('/:packageId/bookings/bookingId')
 
 // PACKAGE COMMENTS CODE
 
-packageRouter.route('/:packageId/comments')
+packageRouter.route('/:packageId/:comments')
     .get((req, res, next) => {
         Packages.findById(req.params.packageId)
             .then((package) => {

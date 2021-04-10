@@ -8,11 +8,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var packageRouter = require('./routes/packageRouter');
 var searchRouter = require('./routes/searchRouter');
+var agencyPackageRouter = require('./routes/agencyPackage');
+
 
 const mongoose = require('mongoose');
 const Packages = require('./models/main');
 
-const url = 'mongodb://localhost:27017/BRNepal';
+const url = 'mongodb://localhost:27017/Ghumantey';
 const connect = mongoose.connect(url);
 
 connect.then((db) => {
@@ -38,6 +40,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/packages', packageRouter);
 app.use('/search', searchRouter);
+app.use('/agencyPackage', agencyPackageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
