@@ -19,7 +19,11 @@ var User = new Schema({
     agency: {
         type: Boolean,
         default: false
-    }
+    },
+    myBookings: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Package'
+    }]
 });
 
 User.plugin(passportLocalMongoose);

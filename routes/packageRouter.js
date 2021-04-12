@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const Packages = require('../models/main');
+const User = require('../models/user');
 var authenticate = require('../authenticate');
 
 const packageRouter = express.Router();
@@ -195,7 +196,12 @@ packageRouter.route('/:packageId/bookings')
                                 res.setHeader('Content-Type', 'application/json');
                                 res.json(package);
                             })
-                        }, (err) => next(err));
+                            User.findById(req.user._id)
+                            .then((user) => {
+                                user.myBookings = user.myBookings.concat([package._id]);
+                                user.save();
+                            })
+                        }, (err) => next(err));                 
                 }
                 else {
                     err = new Error('Book' + req.params.packageId + ' not found!');

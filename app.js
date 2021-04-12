@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var packageRouter = require('./routes/packageRouter');
 var searchRouter = require('./routes/searchRouter');
 var agencyPackageRouter = require('./routes/agencyPackage');
+var myBookingsRouter = require('./routes/myBookings');
 var authenticate = require('./authenticate');
 var config = require('./config');
 
@@ -46,6 +47,7 @@ app.use('/users', usersRouter);
 app.use('/packages', packageRouter);
 app.use('/search', searchRouter);
 app.use('/agencyPackage', agencyPackageRouter);
+app.use('/myBookings', myBookingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
