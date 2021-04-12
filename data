@@ -2,8 +2,12 @@
     "name": "Pokhara Package",
     "price": 5000,
     "destination": "Pokhara",
-    "agency": "XYZ Travels",
-    "description": "sadasdsadsadas"
+    "description": "sadasdsadsadas",
+    "iternaries": " pok to ktm",
+    "included": "movies",
+    "excluded": "food",
+    "phone": 98989898989,
+    "email": "sada@sad.com"
 
 }
 

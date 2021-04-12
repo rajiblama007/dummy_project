@@ -15,8 +15,8 @@ const commentSchema = new Schema({
         default: ''
     },
     author: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 },{
     timestamps: true
@@ -28,7 +28,11 @@ const bookingSchema = new Schema({
         required: true
     },
     author: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    peopleCount: {
+        type: Number,
         required: true
     }
 },{
@@ -49,13 +53,33 @@ const packageSchema = new Schema({
         type: String,
         required: true
     },
+    iternaries: {
+        type: String,
+        required: true
+    },
+    included: {
+        type: String,
+        required: true
+    },
+    excluded: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true
     },
     agency: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     comments: [ commentSchema ],
     bookings: [ bookingSchema ]
