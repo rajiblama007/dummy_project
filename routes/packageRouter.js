@@ -266,8 +266,11 @@ packageRouter.route('/:packageId/bookings/:bookingId')
             .then((package) => {
                 if (package != null && package.bookings.id(req.params.bookingId) != null
                 && package.bookings.id(req.params.bookingId).author.equals(req.user._id)) {
-                    if (req.body.booking) {
-                        package.bookings.id(req.params.bookingId).booking = req.body.booking;
+                    if (req.body.booking == false) {
+                        package.bookings.id(req.params.bookingId).booking = false;
+                    }
+                    if (req.body.booking == true) {
+                        package.bookings.id(req.params.bookingId).booking = true;
                     }
                     if (req.body.peopleCount) {
                         package.bookings.id(req.params.bookingId).peopleCount = req.body.peopleCount;
