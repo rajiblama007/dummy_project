@@ -8,7 +8,7 @@ const searchRouter = express.Router();
 
 searchRouter.use(bodyParser.json());
 searchRouter.route('/')
-    .get((req, res, next) => {
+    .post((req, res, next) => {
         Packages.find({destination: req.body.destination})
             .then((packages) => {
                 res.statusCode = 200;
